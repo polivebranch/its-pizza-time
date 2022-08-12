@@ -4,8 +4,8 @@ name: Order Large Cheese Pizza
 
 # Event we will be listening for
 on: 
-  issue_comment:
-    types: [created]
+  issues:
+    types: [opened]
     
 jobs:
 
@@ -19,7 +19,7 @@ jobs:
     
     # Checking the comment body for our trigger phrase
     # If found in the body, the steps below will run
-    if: (contains(github.event.comment.body,'/order pizza home'))
+    if: (contains(github.event.issue.body,'/order pizza home'))
 
     # The procedural functionality of the place_order job
     steps:
